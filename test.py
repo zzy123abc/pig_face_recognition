@@ -17,8 +17,6 @@ checkpoint_file = 'best.pth.tar'
 checkpoint = torch.load(checkpoint_file)
 net.load_state_dict(checkpoint['state_dict'])
 
-criterion = nn.CrossEntropyLoss().cuda()
-
 test_transform=transforms.Compose(
     [
      transforms.Resize(256),
