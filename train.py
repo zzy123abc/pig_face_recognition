@@ -167,6 +167,8 @@ def adjust_learning_rate(lr, optimizer, epoch):
 start_epoch=0
 epochs=30
 
+best_prec1=0
+
 resume='checkpoint.pth.tar'
 if os.path.isfile(resume):
     checkpoint = torch.load(resume)
@@ -176,8 +178,6 @@ if os.path.isfile(resume):
     optimizer.load_state_dict(checkpoint['optimizer'])
     print("=> loaded checkpoint '{}' (epoch {})"
           .format(resume, checkpoint['epoch']))
-
-best_prec1=0
 
 for epoch in range(start_epoch,epochs):
 
